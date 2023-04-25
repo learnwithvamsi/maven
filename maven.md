@@ -6,7 +6,10 @@ Maven is a code build tool which used to convert your code to artifact. this is 
 #### Prerequisites
 1. Jenkins server **[Get Help Here](https://www.youtube.com/watch?v=M32O4Yv0ANc)
 
-#### Install Maven on Jenkins
+# Install java and setup JAVA_HOME and add to bash-profile
+fins /usr/lib/jvm/java-1.8*  | head -n3
+
+#### Install Maven on Jenkins or as slave
 Download maven packages https://maven.apache.org/download.cgi onto Jenkins server. In this case I am using /opt/maven as my installation directory
 	- Link : https://maven.apache.org/download.cgi
 ```sh
@@ -21,10 +24,14 @@ Download maven packages https://maven.apache.org/download.cgi onto Jenkins serve
 Setup M2_HOME and M2 paths in .bash_profile of user and add these to path variable
 ```sh
   vi ~/.bash_profile
+  JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
   M2_HOME=/opt/maven/apache-maven-3.6.0
   M2=$M2_HOME/bin
-  PAHT=<Existing_PATH>:$M2_HOME:$M2
+  PATH=<Existing_PATH>:$M2_HOME:$M2:$JAVA_HOME
 ```
+to refresh the file 
+source ~/.bash_profile
+echo $PATH
 #### Check point 
 logoff and login to check maven version
 Check maven version 
