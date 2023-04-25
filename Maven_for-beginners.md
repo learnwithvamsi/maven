@@ -78,7 +78,18 @@ project object model is a fundamental unit of work in maven . its an xml file th
  https://repo1.maven.org/maven2/
  
  once developer pushes code  , devops engineer needs to build the environment or run it
+  m2 --repository --com (where mvn install dowload packages)
+unless comiple - we cannot see target folder.
+ important folders in maven:
  
- # maven setup in linux:
+ -----
+ #settings.xml:
+ contains elements used to define values which configure maven executions in various ways like pom.xml, but should not be bundled to any specific project
+ includes locla repos, alternate remote repository servers, and authentications information.
+ 
+ to deploy an app in tomact from maven
+ 1. pom needs to be updated with tomcat plugin  and configuration
+ 2. servers.xml needs to have server details in  id, username, password.
+ 3. goal as :mvn tomcat7:deploy
  
   
